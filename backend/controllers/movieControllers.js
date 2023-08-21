@@ -15,11 +15,24 @@ const createMovies = asyncHandler( async (req, res) =>{
 
     if(!req.body.original_title){
         res.status(400)
-        throw new Error('Porfa teclea una descripcion')
+        throw new Error('Porfavor ingresa una película')
     }
 
     const movie = await Movie.create({
-        original_title: req.body.original_title
+        adult: req.body.adult,
+        backdrop_path: req.body.backdrop_path,
+        genre_ids: req.body.genre_ids,
+        id: req.body.id,
+        original_language: req.body.original_language,
+        original_title: req.body.original_title,
+        overview: req.body.overview,
+        poster_path: req.body.poster_path,
+        popularity: req.body.popularity,
+        title: req.body.title,
+        video: req.body.video,
+        vote_average: req.body.vote_average,
+        vote_count: req.body.vote_average,
+        release_date: req.body.release_date
     })
 
     res.status(201).json(movie)
