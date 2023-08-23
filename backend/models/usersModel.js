@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 const userSchema = mongoose.Schema({
     email:{
         type: String,
-        required: [true, 'Porfavor teclea tu correo'],
+        required: [true, 'Por favor teclea tu correo'],
         unique: true
     },
     password:{
         type: String,
-        required: [true, 'Porfavor teclea tu contraseña']
+        required: [true, 'Por favor teclea tu contraseña']
     },
     admin: {
         type: Boolean,

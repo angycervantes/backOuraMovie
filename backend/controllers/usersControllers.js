@@ -130,7 +130,12 @@ const loginUser = asyncHandler( async  (req, res) => {
 })
 
 const getUserData = asyncHandler( async (req, res) => {
-    res.json(req.user)
+    /* Parche */
+    const moviesList = (req.user.userMovieList)
+    const dataMoviesList = await Movie.find({_id: moviesList})
+    const u = req.user
+    u.userMovieList=dataMoviesList
+    res.json(u)
 })
 
 const getMyList = asyncHandler( async (req, res) => {
